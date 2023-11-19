@@ -393,7 +393,7 @@ Di Eisen
         mkdir /etc/nginx/rahasisakita
         htpasswd -c /etc/nginx/rahasisakita/htpasswd netics
         
-        ajkb17
+        ajkb19
         
         nano /etc/nginx/sites-available/lb-jarkom
         
@@ -540,8 +540,8 @@ mysql -u root -p
 
 ```sql
 # Query yang dilakukan
-CREATE USER 'kelompokb17'@'%' IDENTIFIED BY 'passwordb19';
-CREATE USER 'kelompokb17'@'localhost' IDENTIFIED BY 'passwordb19';
+CREATE USER 'kelompokb19'@'%' IDENTIFIED BY 'passwordb19';
+CREATE USER 'kelompokb19'@'localhost' IDENTIFIED BY 'passwordb19';
 CREATE DATABASE dbkelompokb19;
 GRANT ALL PRIVILEGES ON *.* TO 'kelompokb19'@'%';
 GRANT ALL PRIVILEGES ON *.* TO 'kelompokb19'@'localhost';
@@ -674,7 +674,7 @@ Lalu pada masing masing worker konfigurasi juga untuk `nginx` nya masing masing 
 
 ```sh
 server {
-    listen <8001>;
+    listen <8002>;
 
     root /var/www/laravel-praktikum-jarkom/public;
 
@@ -700,11 +700,11 @@ server {
 }
 ```
 
-sehingga dimana masing masing worker akan terbuka pada port masing masing yaitu `8001`
+sehingga dimana masing masing worker akan terbuka pada port masing masing yaitu `8002`
 ```sh
-10.18.4.1:8001
-10.18.4.2:8001
-10.18.4.3:8001
+10.18.4.4:8002
+10.18.4.5:8003
+10.18.4.6:8004
 ```
 
 Lalu apabila konfigurasi sudah lakukan ini pada worker
@@ -717,7 +717,7 @@ service nginx restart
 Lalu lakukan percobaan dengan melakukan 
 
 ```sh
-lynx localhost:8001
+lynx localhost:8002
 ```
 pada masing masing worker untuk mengetahui apakah konfigurasi sudah benar dan sudah berjalan
 
