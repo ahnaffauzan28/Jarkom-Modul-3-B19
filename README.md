@@ -55,11 +55,13 @@ service bind9 restart
 testing di freirin
 echo nameserver 10.18.1.3 > /etc/resolv.conf
   	ping riegel.canyon.b19.com
+<img width="545" alt="Screenshot 2023-11-20 at 00 02 36" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/9f20c558-657f-4e5b-a0fe-2a65b47b47a1">
 
    
 testing di lawine
  echo nameserver 10.18.1.3 > /etc/resolv.conf
   	ping granz.channel.b19.com
+<img width="522" alt="Screenshot 2023-11-20 at 00 02 51" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/f9726ba7-8631-4b83-8f6c-35a6a1efc5ba">
 
 
 
@@ -93,6 +95,8 @@ apt-get update
     
 
 hasil
+<img width="448" alt="Screenshot 2023-11-20 at 00 04 15" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/8f10bf60-fb0c-43e1-bdaa-7d27528da35d">
+
 
 
 
@@ -119,8 +123,7 @@ Di Himmel
     service isc-dhcp-server status
 
 hasil
-
-
+<img width="445" alt="Screenshot 2023-11-20 at 00 03 27" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/d2eaca09-b047-4596-9a72-499d2a11bd81">
 
 
 
@@ -175,6 +178,7 @@ Di Heiter
     
     service bind9 restart
 
+<img width="437" alt="Screenshot 2023-11-20 at 00 05 02" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/f7be2748-3773-4442-a225-78bc39d0fe87">
 
 
 
@@ -199,6 +203,7 @@ Di Heiter
         max-lease-time 5760;
     }
 
+<img width="413" alt="Screenshot 2023-11-20 at 00 16 33" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/d125e408-c379-43ab-80e2-7ff3e8966cf3">
 
 
 
@@ -263,6 +268,7 @@ Di Semua Client (Saya melakukan setting di Revolte)
     Testing
     lynx granz.channel.b19.com
 
+<img width="573" alt="Screenshot 2023-11-20 at 00 16 45" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/085021c8-95b4-4282-9351-ada51ad0bf42">
 
 
 
@@ -320,6 +326,7 @@ Di Revolte
     ab -n 1000 -c 100 http://www.granz.channel.b19.com/ 
 
 hasil
+<img width="561" alt="Screenshot 2023-11-20 at 00 27 45" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/b443b9a0-d5f4-4efc-9afc-bfe1cd67b81c">
 
 
 
@@ -402,6 +409,8 @@ Di Revolte
         
         masukkan username netics
         masukkan password b19
+<img width="724" alt="Screenshot 2023-11-20 at 00 28 19" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/9780a947-cfb6-4367-b037-5d7b674f8620">
+<img width="646" alt="Screenshot 2023-11-20 at 00 28 35" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/a1ded3d8-5570-4d90-a5be-e4415d841540">
 
 # (soal 11)hint: (proxy_pass)
 > Lalu buat untuk setiap request yang mengandung /its akan di proxy passing menuju halaman https://www.its.ac.id.
@@ -420,6 +429,7 @@ Di Eisen
 Di Revolte
 
         lynx granz.channel.b19.com/its
+<img width="753" alt="Screenshot 2023-11-20 at 00 29 20" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/e670e38a-9068-4232-9f93-6b163fb451af">
 
 # (soal 12)
 > Selanjutnya LB ini hanya boleh diakses oleh client dengan IP [Prefix IP].3.69, [Prefix IP].3.70, [Prefix IP].4.167, dan [Prefix IP].4.168.
@@ -482,7 +492,8 @@ Di Eisen
 Lalu lakukan test lagi di Revolte
 
         lynx granz.channel.b19.com/its
-
+<img width="740" alt="Screenshot 2023-11-20 at 00 30 00" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/bcd8cf16-e9dc-4783-8aeb-7cf223fb726e">
+<img width="753" alt="Screenshot 2023-11-20 at 00 29 20" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/e670e38a-9068-4232-9f93-6b163fb451af">
 
 
 # (soal 13)
@@ -539,7 +550,7 @@ FLUSH PRIVILEGES;
 
 Lalu dari salah satu worker coba untuk mengakses database dengan melakukan 
 ```sql
-mariadb --host=10.18.2.1 --port=3306 --user=kelompokb19 --password=passwordb19 dbkelompokb19 -e "SHOW DATABASES;"
+mariadb --host=10.18.2.1 --port=3306 --user=b19 --password=b19 b19 -e "SHOW DATABASES;"
 ```
 Lalu dapat dilihat akan muncul bahwa dari worker dapat mengakses dan database yang sudah dibuat sudah ada
 
