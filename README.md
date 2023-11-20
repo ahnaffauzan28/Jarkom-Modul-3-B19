@@ -740,10 +740,10 @@ cd /root && nano register.json
 
 Lalu untuk melakukan benchmark lakukan script berikut pada client 
 ```sh
-ab -n 100 -c 10 -p register.json -T application/json 10.18.4.2:8001/api/auth/register
+ab -n 100 -c 10 -p register.json -T application/json 10.18.4.4:8002/api/auth/register
 ```
 
-lalu didapatkan hasil seperti berikut
+lalu didapatkan hasil seperti beriku
 
 # (soal 16)
 > POST /auth/login
@@ -760,7 +760,7 @@ cd /root && nano login.json
 
 Lalu untuk melakukan benchmark lakukan script berikut pada client 
 ```sh
-ab -n 100 -c 10 -p login.json -T application/json 10.18.4.2:8001/api/auth/login
+ab -n 100 -c 10 -p login.json -T application/json 10.18.4.4:8002/api/auth/login
 ```
 
 # (soal17)
@@ -768,7 +768,7 @@ ab -n 100 -c 10 -p login.json -T application/json 10.18.4.2:8001/api/auth/login
 Dalam menyelesaikan ini pertama kita dapatkan terlebih dahulu token untuk login dengan script berikut
 
 ```sh
-curl -X POST -H "Content-Type: application/json" -d @login.json http://10.18.4.1:8001/api/auth/login > login_output.txt
+curl -X POST -H "Content-Type: application/json" -d @login.json http://10.18.4.4:8002/api/auth/login > login_output.txt
 ```
 lalu akan didapatkan tampilan seperti ini
 
@@ -780,7 +780,7 @@ token=$(cat login_output.txt | jq -r '.token')
 Setelah itu jalankan perintah berikut untuk melakukan testing
 
 ```
-ab -n 100 -c 10 -H "Authorization: Bearer $token" http://10.18.4.1:8001/api/me
+ab -n 100 -c 10 -H "Authorization: Bearer $token" http://10.18.4.4:8002/api/me
 ```
 Lalu didapatkan hasil sebagai berikut
 
@@ -793,13 +793,13 @@ Pada permasalahan ini untuk mengatur bekerja sama secara adil maka akan dibuatka
 
 ```sh
 upstream worker {
-    server 10.18.4.1:8001;
-    server 10.18.4.2:8001;
-    server 10.18.4.3:8001;
+    server 10.18.4.4:8002;
+    server 10.18.4.5:8003;
+    server 10.18.4.6:8004;
 }
 
 server {
-    listen 8001;
+    listen 80;
     server_name 10.18.2.2 riegel.canyon.b19.com www.riegel.canyon.b19.com;
 
     location / {
@@ -812,7 +812,7 @@ Karena pada load balancer juga terdapat load balancer untuk php worker, maka por
 Lalu untuk melakukan testing, lakukan pada salah satu client dengan script berikut 
 
 ```sh
-ab -n 100 -c 10 -p login.json -T application/json 10.18.2.2:8001/api/auth/login
+ab -n 100 -c 10 -p login.json -T application/json 10.18.4.4:8002/api/auth/login
 ```
 
 
@@ -918,13 +918,13 @@ Pada permasalahan ini kita mengganti algoritma load balancer untuk `laravel work
 ```sh
 upstream worker {
     least_conn;
-    server 10.18.4.1:8001;
-    server 10.18.4.2:8001;
-    server 10.18.4.3:8001;
+    server 10.18.4.4:8002;
+    server 10.18.4.5:8003;
+    server 10.18.4.6:8004;
 }
 
 server {
-    listen 8001;
+    listen 80;
     server_name 10.18.2.2 riegel.canyon.b19.com www.riegel.canyon.b19.com;
 
     location / {
@@ -936,7 +936,5 @@ server {
 
 lalu untuk melakukan testing gunakan script berikut
 ```sh
-ab -n 100 -c 10 -p login.json -T application/json 10.18.2.2:8001/api/auth/login
+ab -n 100 -c 10 -p login.json -T application/json 10.18.4.4:8002/api/auth/login
 ```
-
-Lalu didapatkan hasil sebagai berikut
