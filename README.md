@@ -550,9 +550,10 @@ FLUSH PRIVILEGES;
 
 Lalu dari salah satu worker coba untuk mengakses database dengan melakukan 
 ```sql
-mariadb --host=10.18.2.1 --port=3306 --user=b19 --password=b19 b19 -e "SHOW DATABASES;"
+mariadb --host=10.18.2.1 --port=3306 --user=kelompokb19 --password=passwordb19 dbkelompokb19 -e "SHOW DATABASES;"
 ```
 Lalu dapat dilihat akan muncul bahwa dari worker dapat mengakses dan database yang sudah dibuat sudah ada
+<img width="264" alt="Screenshot 2023-11-20 at 18 56 39" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/e928d57e-39e6-45f5-a3e3-0457521da36d">
 
 # (soal 14)
 > Frieren, Flamme, dan Fern memiliki Granz Channel sesuai dengan quest guide berikut. Jangan lupa melakukan instalasi PHP8.0 dan Composer
@@ -720,6 +721,7 @@ Lalu lakukan percobaan dengan melakukan
 lynx localhost:8002
 ```
 pada masing masing worker untuk mengetahui apakah konfigurasi sudah benar dan sudah berjalan
+<img width="1185" alt="Screenshot 2023-11-20 at 19 25 23" src="https://github.com/ahnaffauzan28/Jarkom-Modul-3-B19-2023/assets/114007340/5abfffaa-7b68-4538-820d-822d63c2272a">
 
 
 # (soal 15)
